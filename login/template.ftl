@@ -60,7 +60,7 @@
     </div>
     <div id="global-cookie-message">
 
-        <p>WWW.HADLEYSO.COM uses cookies to make this site function. The <a href="https://www.hadleyso.com/privacy-policy" target="_blank">privacy policy</a> & <a href="https://www.hadleyso.com/" target="_blank">service provider</a></p>
+        <p>${msg("providerName")} uses cookies to make this site function. The <a href="${msg("privacyPolicy")}" target="_blank">privacy policy</a> & <a href="https://www.hadleyso.com/" target="_blank">service provider</a></p>
 
     </div>
     <header role="banner" id="global-header" class="${properties.kcHeaderClass!} with-proposition">
@@ -172,7 +172,7 @@
                     <div class="footer-licence">
                         <p>Data is processed and stored in the United States in accordance with applicable laws and regulations. 
                         By using this service, you consent to the transfer, processing, and storage of your data in the United States.
-                        <a href="https://www.hadleyso.com/privacy-policy">Privacy Policy</a>
+                        <a href="${msg("privacyPolicy")}">Privacy Policy</a>
                         <br><br></p>
                         
                         <small>
