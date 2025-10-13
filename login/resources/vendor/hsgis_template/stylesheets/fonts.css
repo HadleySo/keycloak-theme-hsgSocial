@@ -1,0 +1,35 @@
+/* @font-face {
+  font-family: "InstrumentSans-Italic";
+  src: url("https://static.hadleyso.com/fonts/Instrument_Sans/InstrumentSans-Italic-VariableFont.ttf");
+}
+@font-face {
+  font-family: "InstrumentSans";
+  src: url("https://static.hadleyso.com/fonts/Instrument_Sans/InstrumentSans-VariableFont.ttf");
+}
+@font-face {
+  font-family: "InstrumentSerif-Italic";
+  src: url("https://static.hadleyso.com/fonts/Instrument_Serif/InstrumentSerif-Italic.ttf");
+}
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("https://static.hadleyso.com/fonts/Instrument_Serif/InstrumentSerif-Regular.ttf");
+} */
+
+@font-face {
+  font-family: "InstrumentSans-Italic";
+  src: url("https://raw.githubusercontent.com/Instrument/instrument-sans/refs/heads/master/fonts/variable/InstrumentSans-Italic%5Bwdth%2Cwght%5D.ttf");
+}
+@font-face {
+  font-family: "InstrumentSans";
+  src: url("https://raw.githubusercontent.com/Instrument/instrument-sans/refs/heads/master/fonts/variable/InstrumentSans%5Bwdth%2Cwght%5D.ttf");
+}
+@font-face {
+  font-family: "InstrumentSerif-Italic";
+  src: url("https://raw.githubusercontent.com/Instrument/instrument-serif/refs/heads/main/fonts/ttf/InstrumentSerif-Italic.ttf");
+}
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("https://raw.githubusercontent.com/Instrument/instrument-serif/refs/heads/main/fonts/ttf/InstrumentSerif-Regular.ttf");
+}
+
+
