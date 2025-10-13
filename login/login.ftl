@@ -16,7 +16,7 @@
                         <#if usernameEditDisabled??>
                             <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                         <#else>
-                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off" />
+                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="section-${realm.name} username" />
                         </#if>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="${properties.kcInputWrapperClass!}">
-                        <input id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
+                        <input id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="section-${realm.name} password" />
                     </div>
                 </div>
 

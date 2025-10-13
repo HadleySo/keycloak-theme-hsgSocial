@@ -67,7 +67,7 @@
                             <div class="${properties.kcInputWrapperClass!}">
                                 <div class="${properties.kcInputGroup!}" dir="ltr">
                                     <input type="password" id="password" class="${properties.kcInputClass!}" name="password"
-                                           autocomplete="new-password"
+                                           autocomplete="section-${realm.name} new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                                     />
                                 </div>
@@ -88,7 +88,7 @@
                             <div class="${properties.kcInputWrapperClass!}">
                                 <div class="${properties.kcInputGroup!}" dir="ltr">
                                     <input type="password" id="password-confirm" class="${properties.kcInputClass!}"
-                                           name="password-confirm" autocomplete="new-password"
+                                           name="password-confirm" autocomplete="section-${realm.name} new-password"
                                            
                                     />
                                 </div>
