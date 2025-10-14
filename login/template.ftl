@@ -220,6 +220,61 @@
     <script>if (typeof window.HSGIS === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
 
     <#-- End footer -->
+
+    <script>
+        (function() {
+            // Read cookie by name
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+                return null;
+            }
+
+            // Set cookie
+            function setCookie(name, value, days) {
+                var expiryDate = new Date();
+                expiryDate.setDate(expiryDate.getDate() + days);
+                document.cookie = name + "=" + encodeURIComponent(value)
+                    + "; path=/"
+                    + "; expires=" + expiryDate.toUTCString()
+                    + "; SameSite=Lax";
+            }
+
+            // Current realm info
+            var currentRealm = {
+                tID: "${realm.name}",
+                displayName: "${realm.displayName!''}"
+            };
+
+            // Load existing cookie
+            var existing = getCookie("eSTStenantPERSISTENT");
+            var realms = [];
+            if (existing) {
+            try {
+                realms = JSON.parse(existing);
+                if (!Array.isArray(realms)) {
+                realms = [];
+                }
+            } catch (e) {
+                realms = [];
+            }
+            }
+
+            // Check for duplicates by URL
+            var alreadyExists = realms.some(function(r) {
+            return r.tID === currentRealm.tID;
+            });
+
+            if (!alreadyExists) {
+            realms.push(currentRealm);
+            }
+
+            // Save back to cookie
+            setCookie("eSTStenantPERSISTENT", JSON.stringify(realms), 7);
+        })();
+    </script>
+
 </body>
 </html>
 </#macro>

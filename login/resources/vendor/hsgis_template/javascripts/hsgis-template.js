@@ -66,12 +66,12 @@
 
   HSGIS.addCookieMessage = function () {
     var message = document.getElementById('global-cookie-message'),
-        hasCookieMessage = (message && HSGIS.cookie('seen_cookie_message') === null);
+        hasCookieMessage = (message && HSGIS.cookie('cookieGDPRnotice') === null);
 
     if (hasCookieMessage) {
       console.log("hasCookieMessage");
       message.style.display = 'block';
-      HSGIS.cookie('seen_cookie_message', 'yes', { days: 28 });
+      HSGIS.cookie('cookieGDPRnotice', 'yes', { days: 28 });
     }
   console.log("hasCookieMessage");
   };
