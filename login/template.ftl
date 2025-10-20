@@ -100,6 +100,16 @@
 
 
     <main id="content" role="main" style="min-height: 80vh">
+        
+        <#if msg("noticeBannerStatus")?? && msg("noticeBannerStatus") != "noticeBannerStatus" && msg("noticeBannerStatus") != "">
+            <div class="info-banner" role="group">
+                <span class="loader"></span>
+                <span>
+                    ${msg("noticeBannerStatus")}
+                </span>
+            </div>
+        </#if>
+
         <div><#nested "back"></div>
 
         <div class="grid-row">
