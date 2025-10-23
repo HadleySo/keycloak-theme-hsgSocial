@@ -7,6 +7,15 @@ Built on [GOV.UK](https://github.com/UKHomeOffice/keycloak-theme-govuk) under
 
 Released under MIT License 
 
+### Deployment 
+
+Must set the following in [realm localization overrides](https://www.keycloak.org/ui-customization/localization#_overriding_localized_text_for_an_entire_realm): 
+
+1. providerName
+2. privacyPolicy
+3. headerLink
+4. providerLink
+
 ### Modifications
 
 1. Added support for custom user profile attributes

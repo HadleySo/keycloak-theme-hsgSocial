@@ -81,14 +81,14 @@
     </div>
     <div id="global-cookie-message">
 
-        <p>${msg("providerName")} uses cookies to make this site function. The <a href="${msg("privacyPolicy")}" target="_blank">privacy policy</a> & <a href="https://www.hadleyso.com/" target="_blank">service provider</a></p>
+        <p>${msg("providerName")} uses cookies to make this site function. The <a href="${msg("privacyPolicy")}" target="_blank">privacy policy</a> & <a href="${msg("providerLink")}" target="_blank">service provider</a></p>
 
     </div>
     <header role="banner" id="global-header" class="${properties.kcHeaderClass!} with-proposition">
       <div class="header-wrapper">
         <div class="header-global">
           <div class="header-logo">
-            <a href="https://www.hadleyso.com/" id="logo" class="content">
+            <a href="${msg("headerLink")}" id="logo" class="content">
              ${realm.displayName}
             </a>
           </div>
@@ -206,10 +206,12 @@
                         <a href="${msg("privacyPolicy")}">Privacy Policy</a>
                         <br><br></p>
                         
-                        <small>
-                            <p>Copyright &copy; ${.now?string('yyyy')} Hadley So or affiliates. All rights reserved. <br><br></p>
-                            <p>Service provider: &ensp;<a href="https://www.hadleyso.com"><img src="https://static.hadleyso.com/o365-logo.png" style="max-height: 25px; margin-bottom: -10px;"/></a></p>
-                        </small>
+                        <#if msg("providerLink") == "https://www.hadleyso.com">
+                            <small>
+                                <p>Copyright &copy; ${.now?string('yyyy')} Hadley So or affiliates. All rights reserved. <br><br></p>
+                                <p>Service provider: &ensp;<a href="https://www.hadleyso.com"><img src="https://static.hadleyso.com/o365-logo.png" style="max-height: 25px; margin-bottom: -10px;"/></a></p>
+                            </small>
+                        </#if>
                     </div>
                 </div>
 
