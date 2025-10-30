@@ -72,18 +72,19 @@
         </#if>
     <#elseif section = "socialProviders" >
 
+        <#if auth.authenticationSelections?size gt 1 >
+            <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
+        <#elseif enableWebAuthnConditionalUI?has_content>
+            <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
+        <#elseif social.providers?has_content>
+            <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
+        </#if>
 
-        <form id="kc-select-credential-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <div class="${properties.kcSelectAuthListClass!}">
+            <@passkeys.conditionalUIData />
 
-            <#if auth.authenticationSelections?size gt 1 >
-                <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
-            <#elseif enableWebAuthnConditionalUI?has_content>
-                <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
-            <#elseif social.providers?has_content>
-                <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
-            </#if>
-
-            <div class="${properties.kcSelectAuthListClass!}">
+            <form id="kc-select-credential-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post" style="display: inline;">
+                
                 <#list auth.authenticationSelections as authenticationSelection>
                     <#if '${authenticationSelection.displayName}' != "auth-username-password-form-display-name">
                         <button class="${properties.kcButtonClass!} button-alt" type="submit" name="authenticationExecution" value="${authenticationSelection.authExecId}">
@@ -94,9 +95,9 @@
                 <#if auth.authenticationSelections?size gt 1 >
                     <hr>
                 </#if>
-            </div>
-        </form>
-        <@passkeys.conditionalUIData />
+            
+            </form>
+        </div>
 
         <#if realm.password && social?? && social.providers?has_content>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}"> 
