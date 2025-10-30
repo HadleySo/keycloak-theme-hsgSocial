@@ -15,15 +15,20 @@
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
 
 
-    <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/hsgis-template.css?0.22.1" media="screen" rel="stylesheet" />
-    <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/hsgis-template-print.css?0.22.1" media="print" rel="stylesheet" />
+    <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/hsgis-template.css" media="screen" rel="stylesheet" />
+    <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/hsgis-template-print.css" media="print" rel="stylesheet" />
 
-    <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/fonts.css?0.22.1" media="all" rel="stylesheet" />
+    <#if msg("providerLink") == "https://www.hadleyso.com">
+        <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/fonts-cdn.css" media="all" rel="stylesheet" />
+    <#else>
+        <link href="${url.resourcesPath}/vendor/hsgis_template/stylesheets/fonts.css" media="all" rel="stylesheet" />
+    </#if>
+    
     
     <link rel="shortcut icon" href="${url.resourcesPath}/assets/favicon.ico" type="image/x-icon" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="${url.resourcesPath}/vendor/hsgis_template/images/opengraph-image.png?0.22.1">
+    <meta property="og:image" content="${url.resourcesPath}/vendor/hsgis_template/images/opengraph-image.png">
 
 
 
@@ -227,7 +232,7 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
-    <script src="${url.resourcesPath}/vendor/hsgis_template/javascripts/hsgis-template.js?0.22.1"></script>
+    <script src="${url.resourcesPath}/vendor/hsgis_template/javascripts/hsgis-template.js"></script>
 
     <script>if (typeof window.HSGIS === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
 
