@@ -91,12 +91,12 @@
                         </button>
                     </#if>
                 </#list>
-                <@passkeys.conditionalUIData />
                 <#if auth.authenticationSelections?size gt 1 >
                     <hr>
                 </#if>
             </div>
         </form>
+        <@passkeys.conditionalUIData />
 
         <#if realm.password && social?? && social.providers?has_content>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}"> 
