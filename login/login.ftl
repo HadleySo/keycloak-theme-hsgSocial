@@ -1,4 +1,5 @@
 <#import "template.ftl" as layout>
+<#import "passkeys.ftl" as passkeys>
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))}
@@ -16,7 +17,7 @@
                         <#if usernameEditDisabled??>
                             <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                         <#else>
-                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="section-${realm.name} username" />
+                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="${(enableWebAuthnConditionalUI?has_content)?then('section-${realm.name} username webauthn', 'section-${realm.name} username')}" />
                         </#if>
                     </div>
                 </div>
@@ -76,6 +77,8 @@
 
             <#if auth.authenticationSelections?size gt 1 >
                 <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
+            <#elseif enableWebAuthnConditionalUI?has_content>
+                <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
             <#elseif social.providers?has_content>
                 <h2 class="heading-medium">${msg("identity-provider-login-label")}</h2>
             </#if>
@@ -88,6 +91,7 @@
                         </button>
                     </#if>
                 </#list>
+                <@passkeys.conditionalUIData />
                 <#if auth.authenticationSelections?size gt 1 >
                     <hr>
                 </#if>
@@ -95,7 +99,7 @@
         </form>
 
         <#if realm.password && social?? && social.providers?has_content>
-            <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
+            <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}"> 
                 <p style="text-align:left; font-size: medium;">
                     By clicking the buttons below, you consent to the transfer of your request to the provider and to request your user id, login name, name, and e-mail for authenticating you.
                 </p>
