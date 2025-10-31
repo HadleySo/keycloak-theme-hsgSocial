@@ -10,15 +10,28 @@
         <p>${msg("loginTotpStep1")}</p>
 
         <ul class="list list-bullet">
-            <#list totp.policy.supportedApplications as app>
-                <li>${app}</li>
-            </#list>
+            <li>2FAS </li>
+            <li>Apple Passwords </li>
+            <li>DUO</li>
+            <li>Stratum </li>
+            <li>Microsoft Authenticator</li>
+            <li>Google Authenticator</li>
         </ul>
     </li>
     <li>
         <p>${msg("loginTotpStep2")}</p>
         <img id="kc-totp-secret-qr-code" src="data:image/png;base64, ${totp.totpSecretQrCode}" alt="Figure: Barcode"><br/>
-        <span class="code">${totp.totpSecretEncoded}</span>
+        <span class="code" style="user-select: all; -moz-user-select: all; -webkit-user-select: all;">${totp.totpSecretEncoded}</span>
+        <ul style="padding-left: 5px; padding-top:15px; padding-bottom:15px;">
+            <li id="kc-totp-type">${msg("loginTotpType")}: ${msg("loginTotp." + totp.policy.type)}</li>
+            <li id="kc-totp-algorithm">${msg("loginTotpAlgorithm")}: ${totp.policy.getAlgorithmKey()}</li>
+            <li id="kc-totp-digits">${msg("loginTotpDigits")}: ${totp.policy.digits}</li>
+            <#if totp.policy.type = "totp">
+                <li id="kc-totp-period">${msg("loginTotpInterval")}: ${totp.policy.period}</li>
+            <#elseif totp.policy.type = "hotp">
+                <li id="kc-totp-counter">${msg("loginTotpCounter")}: ${totp.policy.initialCounter}</li>
+            </#if>
+        </ul>
     </li>
     <li>
         <p>${msg("loginTotpStep3")}</p>
