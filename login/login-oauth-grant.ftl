@@ -10,6 +10,18 @@
         <div id="kc-oauth" class="content-area">
             <h2 class="heading-medium">${msg("oauthGrantRequest")}</h2>
             <ul class="list list-bullet">
+                <#if oauth.clientScopesRequested??>
+                    <#list oauth.clientScopesRequested as clientScope>
+                        <li>
+                            <span><#if !clientScope.dynamicScopeParameter??>
+                                        ${advancedMsg(clientScope.consentScreenText)}
+                                    <#else>
+                                        ${advancedMsg(clientScope.consentScreenText)}: <b>${clientScope.dynamicScopeParameter}</b>
+                                </#if>
+                            </span>
+                        </li>
+                    </#list>
+                </#if>
                 <#if oauth.claimsRequested??>
                     <li>
                         <span>
