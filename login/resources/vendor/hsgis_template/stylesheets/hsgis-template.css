@@ -105,10 +105,10 @@ a:visited {
   color: #4c2c92; }
 
 a:hover {
-  color: #2b8cc4; }
+  color: #ec8e57; }
 
 a:active {
-  color: #2b8cc4; }
+  color: #ec8e57; }
 
 /*
  * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
@@ -566,7 +566,8 @@ button:focus {
         position: relative; }
         @media (min-width: 641px) {
           #footer .footer-meta .footer-meta-inner .footer-licence {
-            padding-left: 0px; } }
+            padding-left: 0px; 
+            padding-right: 15px;} }
         #footer .footer-meta .footer-meta-inner .footer-licence .logo {
           margin-bottom: 1em;
           padding-top: 0; }

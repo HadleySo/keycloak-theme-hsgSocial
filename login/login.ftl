@@ -63,6 +63,25 @@
             </form>
         </#if>
 
+        <form id="kc-select-credential-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+            <div class="${properties.kcSelectAuthListClass!}">
+                <#if auth.authenticationSelections?size gt 1 >
+                    <div style="padding-top: 25px;"></div>
+                    <hr style="border-color: inherit;">
+                </#if>
+
+                <#list auth.authenticationSelections as authenticationSelection>
+                    <#if '${authenticationSelection.displayName}' != "auth-username-password-form-display-name">
+                        <button class="${properties.kcButtonClass!} ${properties.kcButtonClass!}" type="submit" name="authenticationExecution" value="${authenticationSelection.authExecId}" style="padding-left: 0px; padding-right: 0px;">
+                            <div class="${properties.kcButtonClass!} try-another-way-sel">
+                                Log in with ${msg('${authenticationSelection.displayName}')}
+                            </div>
+                        </button>
+                    </#if>
+                </#list>
+            </div>
+        </form>
+
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
             <div id="kc-registration">

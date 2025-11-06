@@ -179,6 +179,16 @@
                                             </div>
                                         </#if>
 
+                                        <#if auth?has_content && auth.showTryAnotherWayLink()>
+                                            <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
+                                                <div class="${properties.kcFormGroupClass!}" style="padding-top: 15px;">
+                                                    <input type="hidden" name="tryAnotherWay" value="on"/>
+                                                    <a href="#" id="try-another-way"
+                                                        onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
+                                                </div>
+                                            </form>
+                                        </#if>
+
                                     </div>
                                 </div>
 
