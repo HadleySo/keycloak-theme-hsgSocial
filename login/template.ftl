@@ -179,7 +179,7 @@
                                             </div>
                                         </#if>
 
-                                        <#if auth?has_content && auth.showTryAnotherWayLink()>
+                                        <#if auth?has_content && auth.showTryAnotherWayLink() && pageId != "login">
                                             <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
                                                 <div class="${properties.kcFormGroupClass!}" style="padding-top: 15px;">
                                                     <input type="hidden" name="tryAnotherWay" value="on"/>
