@@ -259,11 +259,14 @@
             }
 
             // Set cookie
+            var parts = location.hostname.split('.');
+            var apexDomain = "." + parts.slice(-2).join('.');
             function setCookie(name, value, days) {
                 var expiryDate = new Date();
                 expiryDate.setDate(expiryDate.getDate() + days);
                 document.cookie = name + "=" + encodeURIComponent(value)
                     + "; path=/"
+                    + "; domain=" + apexDomain
                     + "; expires=" + expiryDate.toUTCString()
                     + "; SameSite=Lax";
             }
