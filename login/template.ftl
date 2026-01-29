@@ -300,8 +300,10 @@
             realms.push(currentRealm);
             }
 
-            // Save back to cookie
-            setCookie("eSTStenantPERSISTENT", JSON.stringify(realms), 7);
+            // Save back to cookie if not kc-logout-confirm
+            if (document.getElementById("kc-logout-confirm") == null) {
+                setCookie("eSTStenantPERSISTENT", JSON.stringify(realms), 7);
+            }
         })();
     </script>
 
