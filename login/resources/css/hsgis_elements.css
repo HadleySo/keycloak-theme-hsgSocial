@@ -85,7 +85,8 @@ ol {
   display: -moz-inline-stack;
   display: inline-block;
   padding: .526315em .789473em .263157em;
-  border: none;
+  border: solid;
+  border-color: transparent;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
