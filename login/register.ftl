@@ -1,5 +1,6 @@
 <#import "template.ftl" as layout>
 <#import "user-profile-commons.ftl" as userProfileCommons>
+<#import "register-commons.ftl" as registerCommons>
 <@layout.registrationLayout; section>
     <#if section = "title">
         ${msg("registerWithTitle",(realm.displayName!''))}
@@ -104,6 +105,7 @@
                 </#if>
             </@userProfileCommons.userProfileFormFields>
 
+            <@registerCommons.termsAcceptance/>
 
             <#if recaptchaRequired?? && (recaptchaVisible!false)>
                 <div class="form-group">
