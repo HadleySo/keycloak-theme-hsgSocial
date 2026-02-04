@@ -17,13 +17,7 @@
                 />
                 <label for="termsAccepted" >${msg("acceptTerms")}</label>
             </div>
-            <#if messagesPerField.existsError('termsAccepted')>
-                <div class="${properties.kcLabelWrapperClass!}">
-                            <span id="input-error-terms-accepted" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-                                ${messagesPerField.get('termsAccepted')}
-                            </span>
-                </div>
-            </#if>
+
         </div>
     </#if>
 </#macro>

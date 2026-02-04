@@ -115,6 +115,21 @@
                 </div>
             </#if>
 
+            <#if passkeyCompatibilityCheckRequired>
+                <input type="hidden" id="passkeyCompatibilityCheck" name="passkeyCompatibilityCheck" value="no"/>
+                <script>
+                    PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
+                        .then((available) => {
+                            if (available) {
+                                document.getElementById("passkeyCompatibilityCheck").value = "yes";
+                            } 
+                        })
+                        .catch((err) => {
+                            console.log("Unable to isUserVerifyingPlatformAuthenticatorAvailable for passkeyCompatibilityCheck");
+                        });
+                </script>
+            </#if>
+
             <div class="${properties.kcFormGroupClass!}">
 
                 <#if recaptchaRequired?? && !(recaptchaVisible!false)>
